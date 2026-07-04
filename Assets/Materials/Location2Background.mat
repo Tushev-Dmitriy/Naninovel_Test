@@ -19,7 +19,8 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: Opaque
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -52,7 +53,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.22, g: 0.48, b: 0.33, a: 1}
-    - _Color: {r: 0.22, g: 0.48, b: 0.33, a: 1}
+    - _Color: {r: 0.21999997, g: 0.47999996, b: 0.32999998, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1786501084741695397

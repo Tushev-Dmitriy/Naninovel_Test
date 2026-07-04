@@ -7,4 +7,5 @@ public class QuestState
     public bool checkedSafe;
     public bool hasKey;
     public bool hasQuestItem;
+    public bool isGameFinished;
 }

@@ -54,6 +54,14 @@ public class QuestStateService : MonoBehaviour
         NotifyChanged();
     }
 
+    public void FinishGame ()
+    {
+        if (state.isGameFinished) return;
+
+        state.isGameFinished = true;
+        NotifyChanged();
+    }
+
     public string GetInventoryText ()
     {
         if (state.hasQuestItem) return "Quest item";
