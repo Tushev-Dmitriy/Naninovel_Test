@@ -1,0 +1,14 @@
+@if "isGameFinished==true"
+@print "NPC: Thanks again."
+@elseif "hasQuestItem==true"
+@set isGameFinished=true
+@print "NPC: Thanks for the item."
+@elseif "talkedToNpc==false"
+@set talkedToNpc=true
+@print "NPC: Please bring me the item from the safe."
+@elseif "checkedSafe==true&&hasKey==false"
+@print "NPC: The key may be on Location 3."
+@else
+@print "NPC: How is it going?"
+@endif
+@stop

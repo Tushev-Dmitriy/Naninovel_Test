@@ -1,21 +1,24 @@
+using Naninovel;
 using UnityEngine;
 
 public abstract class InteractableBase : MonoBehaviour
 {
-    [SerializeField] protected QuestStateService questStateService;
-
-    protected virtual void Awake ()
-    {
-        if (!questStateService) questStateService = FindFirstObjectByType<QuestStateService>();
-    }
-
     public void TryInteract ()
     {
         if (!enabled || !gameObject.activeInHierarchy) return;
-        if (!questStateService) return;
 
         Interact();
     }
 
     protected abstract void Interact ();
+
+    protected void PlayScript (string scriptName)
+    {
+        if (!Engine.Initialized) return;
+
+        var player = Engine.GetService<IScriptPlayer>();
+        if (player == null || player.Playing) return;
+
+        player.PreloadAndPlayAsync(scriptName).Forget();
+    }
 }

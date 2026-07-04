@@ -1,11 +1,9 @@
-using System;
-
-[Serializable]
-public class QuestState
+public static class QuestState
 {
-    public bool talkedToNpc;
-    public bool checkedSafe;
-    public bool hasKey;
-    public bool hasQuestItem;
-    public bool isGameFinished;
+    public const string TalkedToNpcVariable = "talkedToNpc";
+    public const string CheckedSafeVariable = "checkedSafe";
+    public const string HasKeyVariable = "hasKey";
+    public const string HasQuestItemVariable = "hasQuestItem";
+    public const string IsGameFinishedVariable = "isGameFinished";
+    public const string CurrentLocationVariable = "currentLocation";
 }

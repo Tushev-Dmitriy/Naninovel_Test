@@ -145,4 +145,25 @@ MonoBehaviour:
       pathPrefix: UI
       guid: 735d6aa767879aa469134858c5b2f0a7
   - Id: Scripts
-    Resources: []
+    Resources:
+    - name: Main
+      pathPrefix: Scripts
+      guid: 5ec4eb662b9f47c8a20dbdf61d99b5b7
+    - name: Location1
+      pathPrefix: Scripts
+      guid: 06e4712e331f4638bf1c60ae20c16a95
+    - name: Location2
+      pathPrefix: Scripts
+      guid: 1db16d9e522440a4b3c1185467dd4ca4
+    - name: Location3
+      pathPrefix: Scripts
+      guid: 3013fdbe90aa437fae053f2a0ee58a46
+    - name: NpcInteract
+      pathPrefix: Scripts
+      guid: 833e923a650a41a983595c7f3fd3a52c
+    - name: SafeInteract
+      pathPrefix: Scripts
+      guid: d6450d2f9b0c4ea2a8652d4ac3f3dcfd
+    - name: KeyInteract
+      pathPrefix: Scripts
+      guid: d9841594f90b41a08007c1f97846ec2d

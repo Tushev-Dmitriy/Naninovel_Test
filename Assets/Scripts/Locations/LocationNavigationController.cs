@@ -1,3 +1,4 @@
+using Naninovel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,34 +10,51 @@ public class LocationNavigationController : MonoBehaviour
     [SerializeField] private Button location1Button;
     [SerializeField] private Button location2Button;
     [SerializeField] private Button location3Button;
+    [SerializeField] private GameObject keyObject;
+    [SerializeField] private QuestStateService questStateService;
 
     private void Awake ()
     {
         ResolveReferences();
         BindButtons();
-        ShowLocation1();
+        RefreshView();
+    }
+
+    private void OnEnable ()
+    {
+        if (questStateService) questStateService.StateChanged += RefreshView;
+        RefreshView();
+    }
+
+    private void OnDisable ()
+    {
+        if (questStateService) questStateService.StateChanged -= RefreshView;
     }
 
     public void ShowLocation1 ()
     {
-        SetActiveLocation(LocationId.Location1);
+        PlayScript("Location1");
     }
 
     public void ShowLocation2 ()
     {
-        SetActiveLocation(LocationId.Location2);
+        PlayScript("Location2");
     }
 
     public void ShowLocation3 ()
     {
-        SetActiveLocation(LocationId.Location3);
+        PlayScript("Location3");
     }
 
-    private void SetActiveLocation (LocationId locationId)
+    private void RefreshView ()
     {
-        if (location1Root) location1Root.SetActive(locationId == LocationId.Location1);
-        if (location2Root) location2Root.SetActive(locationId == LocationId.Location2);
-        if (location3Root) location3Root.SetActive(locationId == LocationId.Location3);
+        var locationId = questStateService ? questStateService.GetCurrentLocation() : 1;
+
+        if (location1Root) location1Root.SetActive(locationId == 1);
+        if (location2Root) location2Root.SetActive(locationId == 2);
+        if (location3Root) location3Root.SetActive(locationId == 3);
+        if (keyObject && questStateService)
+            keyObject.SetActive(!questStateService.HasKey() && !questStateService.HasQuestItem());
     }
 
     private void ResolveReferences ()
@@ -44,9 +62,11 @@ public class LocationNavigationController : MonoBehaviour
         if (!location1Root) location1Root = transform.Find("LocationsRoot/Location1Root")?.gameObject;
         if (!location2Root) location2Root = transform.Find("LocationsRoot/Location2Root")?.gameObject;
         if (!location3Root) location3Root = transform.Find("LocationsRoot/Location3Root")?.gameObject;
+        if (!keyObject) keyObject = transform.Find("LocationsRoot/Location3Root/KeyPlaceholder")?.gameObject;
         if (!location1Button) location1Button = transform.Find("GameplayUIRoot/GameplayCanvas/NavigationPanel/Location1Button")?.GetComponent<Button>();
         if (!location2Button) location2Button = transform.Find("GameplayUIRoot/GameplayCanvas/NavigationPanel/Location2Button")?.GetComponent<Button>();
         if (!location3Button) location3Button = transform.Find("GameplayUIRoot/GameplayCanvas/NavigationPanel/Location3Button")?.GetComponent<Button>();
+        if (!questStateService) questStateService = GetComponent<QuestStateService>();
     }
 
     private void BindButtons ()
@@ -68,5 +88,16 @@ public class LocationNavigationController : MonoBehaviour
             location3Button.onClick.RemoveListener(ShowLocation3);
             location3Button.onClick.AddListener(ShowLocation3);
         }
+    }
+
+    private void PlayScript (string scriptName)
+    {
+        if (!Engine.Initialized) return;
+
+        var player = Engine.GetService<IScriptPlayer>();
+        if (player == null) return;
+
+        player.Stop();
+        player.PreloadAndPlayAsync(scriptName).Forget();
     }
 }

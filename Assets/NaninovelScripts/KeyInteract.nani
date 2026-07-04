@@ -1,0 +1,7 @@
+@if "hasKey==true||hasQuestItem==true"
+@print "Key: Already collected."
+@else
+@set hasKey=true
+@print "Key: Collected."
+@endif
+@stop

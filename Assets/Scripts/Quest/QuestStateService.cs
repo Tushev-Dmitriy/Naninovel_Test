@@ -1,72 +1,87 @@
 using System;
+using Naninovel;
 using UnityEngine;
 
 public class QuestStateService : MonoBehaviour
 {
-    [SerializeField] private QuestState state = new QuestState();
-
     public event Action StateChanged;
 
-    public QuestState State => state;
+    private ICustomVariableManager variableManager;
 
-    private void Start ()
+    private void OnEnable ()
     {
-        NotifyChanged();
+        Engine.OnInitializationFinished += HandleEngineInitialized;
+
+        if (Engine.Initialized)
+            HandleEngineInitialized();
     }
 
-    public void MarkTalkedToNpc ()
+    private void OnDisable ()
     {
-        if (state.talkedToNpc) return;
+        Engine.OnInitializationFinished -= HandleEngineInitialized;
 
-        state.talkedToNpc = true;
-        NotifyChanged();
+        if (variableManager != null)
+            variableManager.OnVariableUpdated -= HandleVariableUpdated;
     }
 
-    public void MarkCheckedSafe ()
+    public int GetCurrentLocation ()
     {
-        if (state.checkedSafe) return;
-
-        state.checkedSafe = true;
-        NotifyChanged();
+        return GetInt(QuestState.CurrentLocationVariable, 1);
     }
 
-    public void GiveKey ()
+    public bool HasKey ()
     {
-        if (state.hasKey) return;
-
-        state.hasKey = true;
-        NotifyChanged();
+        return GetBool(QuestState.HasKeyVariable);
     }
 
-    public void RemoveKey ()
+    public bool HasQuestItem ()
     {
-        if (!state.hasKey) return;
-
-        state.hasKey = false;
-        NotifyChanged();
-    }
-
-    public void GiveQuestItem ()
-    {
-        if (state.hasQuestItem) return;
-
-        state.hasQuestItem = true;
-        NotifyChanged();
-    }
-
-    public void FinishGame ()
-    {
-        if (state.isGameFinished) return;
-
-        state.isGameFinished = true;
-        NotifyChanged();
+        return GetBool(QuestState.HasQuestItemVariable);
     }
 
     public string GetInventoryText ()
     {
-        if (state.hasQuestItem) return "Quest item";
-        if (state.hasKey) return "Key";
+        if (HasQuestItem()) return "Quest item";
+        if (HasKey()) return "Key";
         return "Empty";
+    }
+
+    private void HandleEngineInitialized ()
+    {
+        if (variableManager != null)
+            variableManager.OnVariableUpdated -= HandleVariableUpdated;
+
+        variableManager = Engine.GetService<ICustomVariableManager>();
+
+        if (variableManager != null)
+            variableManager.OnVariableUpdated += HandleVariableUpdated;
+
+        NotifyChanged();
+    }
+
+    private void HandleVariableUpdated (CustomVariableUpdatedArgs args)
+    {
+        if (args.Name.Equals(QuestState.TalkedToNpcVariable, StringComparison.OrdinalIgnoreCase) ||
+            args.Name.Equals(QuestState.CheckedSafeVariable, StringComparison.OrdinalIgnoreCase) ||
+            args.Name.Equals(QuestState.HasKeyVariable, StringComparison.OrdinalIgnoreCase) ||
+            args.Name.Equals(QuestState.HasQuestItemVariable, StringComparison.OrdinalIgnoreCase) ||
+            args.Name.Equals(QuestState.IsGameFinishedVariable, StringComparison.OrdinalIgnoreCase) ||
+            args.Name.Equals(QuestState.CurrentLocationVariable, StringComparison.OrdinalIgnoreCase))
+            NotifyChanged();
+    }
+
+    private bool GetBool (string variableName)
+    {
+        if (variableManager == null) return false;
+        if (!variableManager.TryGetVariableValue(variableName, out bool value)) return false;
+        return value;
+    }
+
+    private int GetInt (string variableName, int fallbackValue)
+    {
+        if (variableManager == null) return fallbackValue;
+        if (!variableManager.TryGetVariableValue(variableName, out int value)) return fallbackValue;
+        return value;
     }
 
     private void NotifyChanged ()

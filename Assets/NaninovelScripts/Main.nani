@@ -1,0 +1,7 @@
+@set talkedToNpc=false
+@set checkedSafe=false
+@set hasKey=false
+@set hasQuestItem=false
+@set isGameFinished=false
+@set currentLocation=1
+@stop
