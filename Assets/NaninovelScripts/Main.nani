@@ -1,3 +1,4 @@
+@showStartupCover
 @set talkedToNpc=false
 @set checkedSafe=false
 @set hasKey=false

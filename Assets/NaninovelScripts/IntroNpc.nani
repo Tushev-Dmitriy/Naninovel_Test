@@ -1,13 +1,14 @@
+@back Location1 time:0
+@hideStartupCover
 @clearChoice *
 @set currentLocation=1
 @set talkedToNpc=true
-@stopBgm fade:0.35
+@stopBgm  fade:0.35
 @bgm Music/location_loop volume:0.12 fade:0.7
-@back Location1 time:0
 @hideChars time:0 remove:true
 @char Npc pos:50,0 scale:0.5 time:0
 @sfx SFX/npc_click volume:0.17
 @print "NPC: Привет. Принеси мне, пожалуйста, предмет из сейфа."
-@hidePrinter
+@hidePrinter 
 @hideChars time:0 remove:true
 @goto Location1

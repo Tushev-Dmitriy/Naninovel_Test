@@ -5,7 +5,7 @@
 @if hasKey==false&&hasQuestItem==false
 @char Key pos:30,15 scale:0.15 time:0
 @endif
-@choice "Локация 1" button:ChoiceButtons/CompactChoiceButton pos:-800,500 handler:ButtonArea goto:Location1
-@choice "Локация 2" button:ChoiceButtons/CompactChoiceButton pos:-800,440 handler:ButtonArea goto:Location2
-@choice "Локация 3" button:ChoiceButtons/CompactChoiceButton pos:-800,380 handler:ButtonArea goto:StayOnLocation3
+@choice "Локация 1" button:ChoiceButtons/CompactChoiceButton pos:36,36 handler:ButtonArea goto:Location1
+@choice "Локация 2" button:ChoiceButtons/CompactChoiceButton pos:36,96 handler:ButtonArea goto:Location2
+@choice "Локация 3" button:ChoiceButtons/CompactChoiceButton pos:36,156 handler:ButtonArea goto:StayOnLocation3
 @stop

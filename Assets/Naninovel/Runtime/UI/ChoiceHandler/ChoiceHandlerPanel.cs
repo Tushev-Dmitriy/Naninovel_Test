@@ -71,7 +71,16 @@ namespace Naninovel.UI
                     .Select(b => new BacklogChoice(b.ChoiceState.Summary, b.ChoiceState.Id == choice.Id)).ToList());
 
             if (choice.OverwriteButtonPosition)
-                choiceButton.transform.localPosition = choice.ButtonPosition;
+            {
+                if (choiceButton.transform is RectTransform rectTransform)
+                {
+                    rectTransform.anchorMin = new Vector2(0f, 1f);
+                    rectTransform.anchorMax = new Vector2(0f, 1f);
+                    rectTransform.pivot = new Vector2(0f, 1f);
+                    rectTransform.anchoredPosition = new Vector2(choice.ButtonPosition.x, -choice.ButtonPosition.y);
+                }
+                else choiceButton.transform.localPosition = choice.ButtonPosition;
+            }
 
             ChoiceButtons.Add(choiceButton);
 
