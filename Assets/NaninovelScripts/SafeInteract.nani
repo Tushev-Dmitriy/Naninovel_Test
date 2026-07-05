@@ -1,11 +1,14 @@
 @if "hasQuestItem==true"
 @print "Safe: It is already open."
+@hidePrinter
 @elseif "hasKey==false"
 @set checkedSafe=true
 @print "Safe: It is locked. I need a key."
+@hidePrinter
 @else
 @set hasKey=false
 @set hasQuestItem=true
 @print "Safe: Opened. I found the quest item."
+@hidePrinter
 @endif
-@stop
+@goto Location2

@@ -167,3 +167,29 @@ MonoBehaviour:
     - name: KeyInteract
       pathPrefix: Scripts
       guid: d9841594f90b41a08007c1f97846ec2d
+  - Id: Backgrounds/8d4dbf76-a2ec-4a4d-b3e6-5ea5ce34db79
+    Resources:
+    - name: Location1
+      pathPrefix: Backgrounds/MainBackground
+      guid: 91dd7d2f62e44ba1bced7f1d43b05fba
+    - name: Location2
+      pathPrefix: Backgrounds/MainBackground
+      guid: 91bb01882c524714ac3e8543a5b01d54
+    - name: Location3
+      pathPrefix: Backgrounds/MainBackground
+      guid: d176cba92f3745379d4568f9f45b88d2
+  - Id: Characters/e85e905c-6eeb-4ed2-9fcb-f8d71ecf37dd
+    Resources:
+    - name: Default
+      pathPrefix: Characters/Npc
+      guid: 9f06268d9f7d4f8894310051152b7a97
+  - Id: Characters/5be0c650-8ee7-489f-a8fb-b912a4cf97d6
+    Resources:
+    - name: Default
+      pathPrefix: Characters/Safe
+      guid: b15466d91f54490d97773987c7f32df8
+  - Id: Characters/ec855b10-b77d-4f0a-b7ef-7b0d1c0b0de2
+    Resources:
+    - name: Default
+      pathPrefix: Characters/Key
+      guid: 69c1f308f78245d49882a5e0dfa70d3f

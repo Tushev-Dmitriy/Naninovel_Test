@@ -1,7 +1,9 @@
 @if "hasKey==true||hasQuestItem==true"
 @print "Key: Already collected."
+@hidePrinter
 @else
 @set hasKey=true
 @print "Key: Collected."
+@hidePrinter
 @endif
-@stop
+@goto Location3

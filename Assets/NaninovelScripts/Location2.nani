@@ -1,2 +1,10 @@
+@clearChoice *
 @set currentLocation=2
+@back Location2 pos:50,48 time:0
+@hideChars time:0 remove:true
+@char Safe pos:50,29 scale:2.5 time:0
+@choice "Check safe" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:0,-245 goto:SafeInteract
+@choice "Location 1" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,220 goto:Location1
+@choice "Location 2" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,165 goto:Location2
+@choice "Location 3" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,110 goto:Location3
 @stop

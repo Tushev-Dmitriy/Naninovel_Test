@@ -4,4 +4,4 @@
 @set hasQuestItem=false
 @set isGameFinished=false
 @set currentLocation=1
-@stop
+@goto Location1

@@ -12,9 +12,13 @@ public class NaninovelBootstrap : MonoBehaviour
         if (string.IsNullOrWhiteSpace(startupScriptName)) return;
 
         var player = Engine.GetService<IScriptPlayer>();
-        if (player == null) return;
+        var stateManager = Engine.GetService<IStateManager>();
+        if (player == null || stateManager == null) return;
 
-        player.Stop();
-        await player.PreloadAndPlayAsync(startupScriptName);
+        await stateManager.ResetStateAsync(() =>
+        {
+            player.Stop();
+            return player.PreloadAndPlayAsync(startupScriptName);
+        });
     }
 }
