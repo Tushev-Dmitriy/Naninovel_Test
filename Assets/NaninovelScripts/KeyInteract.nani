@@ -2,8 +2,14 @@
 @print "Key: Already collected."
 @hidePrinter
 @else
+@set ticTacToeWon=false
+@clearChoice *
+@hidePrinter
+@playTicTacToe
+@if ticTacToeWon==true
 @set hasKey=true
 @print "Key: Collected."
 @hidePrinter
+@endif
 @endif
 @goto Location3

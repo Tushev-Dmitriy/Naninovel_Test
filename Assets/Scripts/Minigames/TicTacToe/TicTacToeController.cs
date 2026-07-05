@@ -2,10 +2,13 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class TicTacToeController : MonoBehaviour
 {
+    public event Action<TicTacToeResult> Finished;
+
     public TicTacToeResult Result => result;
 
     private TMP_Text statusText;
@@ -18,6 +21,8 @@ public class TicTacToeController : MonoBehaviour
 
     private void Awake ()
     {
+        EnsureEventSystem();
+
         statusText = transform.Find("StatusText")?.GetComponent<TMP_Text>();
         retryButton = transform.Find("RetryButton")?.GetComponent<Button>();
 
@@ -67,6 +72,12 @@ public class TicTacToeController : MonoBehaviour
         RefreshStatus();
     }
 
+    public void BeginSession ()
+    {
+        gameObject.SetActive(true);
+        ResetBoard();
+    }
+
     private void OnCellClicked (int cellIndex)
     {
         if (result != TicTacToeResult.None) return;
@@ -78,7 +89,10 @@ public class TicTacToeController : MonoBehaviour
 
         result = EvaluateResult();
         if (result != TicTacToeResult.None)
+        {
             SetBoardInteractable(false);
+            Finished?.Invoke(result);
+        }
         else
             MakeAiMove();
 
@@ -151,7 +165,10 @@ public class TicTacToeController : MonoBehaviour
         result = EvaluateResult();
 
         if (result != TicTacToeResult.None)
+        {
             SetBoardInteractable(false);
+            Finished?.Invoke(result);
+        }
     }
 
     private void ApplyMove (int cellIndex, TicTacToeMark mark)
@@ -159,5 +176,19 @@ public class TicTacToeController : MonoBehaviour
         board[cellIndex] = mark;
         cellLabels[cellIndex].text = mark.ToString();
         cellButtons[cellIndex].interactable = false;
+    }
+
+    private void EnsureEventSystem ()
+    {
+        if (EventSystem.current != null) return;
+
+        var eventSystemObject = new GameObject("EventSystem");
+        eventSystemObject.AddComponent<EventSystem>();
+
+        #if ENABLE_INPUT_SYSTEM && INPUT_SYSTEM_AVAILABLE
+        eventSystemObject.AddComponent<UnityEngine.InputSystem.UI.InputSystemUIInputModule>();
+        #else
+        eventSystemObject.AddComponent<StandaloneInputModule>();
+        #endif
     }
 }
