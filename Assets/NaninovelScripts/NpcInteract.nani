@@ -1,21 +1,22 @@
 @hideChars time:0 remove:true
-@char Npc pos:50,0 scale:1.5 time:0
+@char Npc pos:50,0 scale:0.5 time:0
 @if isGameFinished==true
-@print "NPC: Thanks again."
+@print "NPC: Спасибо еще раз."
 @hidePrinter 
 @elseif hasQuestItem==true
+@set hasQuestItem=false
 @set isGameFinished=true
-@print "NPC: Thanks for the item."
+@print "NPC: Отлично, это именно то, что мне было нужно. Спасибо."
 @hidePrinter 
 @elseif talkedToNpc==false
 @set talkedToNpc=true
-@print "NPC: Please bring me the item from the safe."
+@print "NPC: Принеси мне, пожалуйста, предмет из сейфа."
 @hidePrinter 
 @elseif checkedSafe==true&&hasKey==false
-@print "NPC: The key may be on Location 3."
+@print "NPC: Похоже, ключ можно найти на локации 3."
 @hidePrinter 
 @else
-@print "NPC: How is it going?"
+@print "NPC: Ну как, получается?"
 @hidePrinter 
 @endif
 @hideChars time:0 remove:true

@@ -3,9 +3,9 @@
 @back Location3 time:0
 @hideChars time:0 remove:true
 @if hasKey==false&&hasQuestItem==false
-@choice "Inspect area" button:ChoiceButtons/CompactChoiceButton pos:0,-235 handler:ButtonArea goto:KeyInteract
+@char Key pos:30,15 scale:0.15 time:0
 @endif
-@choice "Location 1" button:ChoiceButtons/CompactChoiceButton pos:-820,220 handler:ButtonArea goto:Location1
-@choice "Location 2" button:ChoiceButtons/CompactChoiceButton pos:-820,165 handler:ButtonArea goto:Location2
-@choice "Location 3" button:ChoiceButtons/CompactChoiceButton pos:-820,110 handler:ButtonArea goto:StayOnLocation3
+@choice "Локация 1" button:ChoiceButtons/CompactChoiceButton pos:-820,220 handler:ButtonArea goto:Location1
+@choice "Локация 2" button:ChoiceButtons/CompactChoiceButton pos:-820,165 handler:ButtonArea goto:Location2
+@choice "Локация 3" button:ChoiceButtons/CompactChoiceButton pos:-820,110 handler:ButtonArea goto:StayOnLocation3
 @stop

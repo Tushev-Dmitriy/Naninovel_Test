@@ -1,17 +1,17 @@
 @hideChars time:0 remove:true
-@char Key pos:50,0 scale:1.35 time:0
-@if "hasKey==true||hasQuestItem==true"
-@print "Key: Already collected."
-@hidePrinter
+@char Key pos:50,0 scale:0.5 time:0
+@if hasKey==true||hasQuestItem==true
+@print "Ключ: Уже подобран."
+@hidePrinter 
 @else
 @set ticTacToeWon=false
 @clearChoice *
-@hidePrinter
+@hidePrinter 
 @playTicTacToe
 @if ticTacToeWon==true
 @set hasKey=true
-@print "Key: Collected."
-@hidePrinter
+@print "Ключ: Получен."
+@hidePrinter 
 @endif
 @endif
 @hideChars time:0 remove:true

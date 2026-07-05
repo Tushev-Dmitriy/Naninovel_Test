@@ -131,16 +131,16 @@ public class TicTacToeController : MonoBehaviour
         switch (result)
         {
             case TicTacToeResult.XWins:
-                statusText.text = "You win";
+                statusText.text = "Вы победили";
                 break;
             case TicTacToeResult.OWins:
-                statusText.text = "You lose. Try again";
+                statusText.text = "Поражение. Попробуйте снова";
                 break;
             case TicTacToeResult.Draw:
-                statusText.text = "Draw. Try again";
+                statusText.text = "Ничья. Попробуйте снова";
                 break;
             default:
-                statusText.text = "Your turn";
+                statusText.text = "Ваш ход";
                 break;
         }
 

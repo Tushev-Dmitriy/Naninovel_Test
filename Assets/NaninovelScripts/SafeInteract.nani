@@ -1,17 +1,17 @@
 @hideChars time:0 remove:true
-@char Safe pos:50,5 scale:1.25 time:0
-@if "hasQuestItem==true"
-@print "Safe: It is already open."
-@hidePrinter
-@elseif "hasKey==false"
+@char Safe pos:50,5 scale:0.5 time:0
+@if hasQuestItem==true
+@print "Сейф: Он уже открыт."
+@hidePrinter 
+@elseif hasKey==false
 @set checkedSafe=true
-@print "Safe: It is locked. I need a key."
-@hidePrinter
+@print "Сейф: Закрыт. Нужен ключ."
+@hidePrinter 
 @else
 @set hasKey=false
 @set hasQuestItem=true
-@print "Safe: Opened. I found the quest item."
-@hidePrinter
+@print "Сейф: Открыто. Внутри лежал старинный амулет."
+@hidePrinter 
 @endif
 @hideChars time:0 remove:true
 @goto Location2
