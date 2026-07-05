@@ -1,0 +1,10 @@
+@clearChoice *
+@set currentLocation=1
+@set talkedToNpc=true
+@back Location1 time:0
+@hideChars time:0 remove:true
+@char Npc pos:50,0 scale:0.5 time:0
+@print "NPC: Привет. Принеси мне, пожалуйста, предмет из сейфа."
+@hidePrinter
+@hideChars time:0 remove:true
+@goto Location1

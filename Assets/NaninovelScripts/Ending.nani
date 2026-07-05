@@ -1,0 +1,6 @@
+@clearChoice *
+@hideChars time:0 remove:true
+@back Location1 time:0
+@print "Игра завершена."
+@hidePrinter
+@title

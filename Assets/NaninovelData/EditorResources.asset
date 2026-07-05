@@ -176,6 +176,12 @@ MonoBehaviour:
     - name: StayOnLocation3
       pathPrefix: Scripts
       guid: 412b56a980776b44b8d75cc0b799072e
+    - name: IntroNpc
+      pathPrefix: Scripts
+      guid: bfec9136af3146d481924669c63df4bc
+    - name: Ending
+      pathPrefix: Scripts
+      guid: fda75946b7a54231a3b744111fc17293
     - name: Title
       pathPrefix: Scripts
       guid: 6f505ba3898c3964c9c9a16858e784c0

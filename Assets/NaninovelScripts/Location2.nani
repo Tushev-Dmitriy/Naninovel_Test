@@ -3,7 +3,7 @@
 @back Location2 time:0
 @hideChars time:0 remove:true
 @char Safe pos:45,30 scale:0.25 time:0
-@choice "Локация 1" button:ChoiceButtons/CompactChoiceButton pos:-820,220 handler:ButtonArea goto:Location1
-@choice "Локация 2" button:ChoiceButtons/CompactChoiceButton pos:-820,165 handler:ButtonArea goto:StayOnLocation2
-@choice "Локация 3" button:ChoiceButtons/CompactChoiceButton pos:-820,110 handler:ButtonArea goto:Location3
+@choice "Локация 1" button:ChoiceButtons/CompactChoiceButton pos:-800,500 handler:ButtonArea goto:Location1
+@choice "Локация 2" button:ChoiceButtons/CompactChoiceButton pos:-800,440 handler:ButtonArea goto:StayOnLocation2
+@choice "Локация 3" button:ChoiceButtons/CompactChoiceButton pos:-800,380 handler:ButtonArea goto:Location3
 @stop

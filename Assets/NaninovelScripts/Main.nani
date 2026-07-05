@@ -5,4 +5,4 @@
 @set isGameFinished=false
 @set ticTacToeWon=false
 @set currentLocation=1
-@goto Location1
+@goto IntroNpc

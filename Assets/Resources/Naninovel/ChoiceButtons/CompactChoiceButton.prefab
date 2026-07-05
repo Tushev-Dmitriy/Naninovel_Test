@@ -100,11 +100,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.06666667, g: 0.06666667, b: 0.06666667, a: 0.49019608}
-    m_HighlightedColor: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 0.49019608}
-    m_PressedColor: {r: 0.33333334, g: 0.33333334, b: 0.33333334, a: 0.7254902}
-    m_SelectedColor: {r: 0.22745098, g: 0.4745098, b: 0.73333335, a: 0.88235295}
-    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.25490198}
+    m_NormalColor: {r: 0.06666667, g: 0.08627451, b: 0.1254902, a: 0.84}
+    m_HighlightedColor: {r: 0.16078432, g: 0.21960784, b: 0.31764707, a: 0.92}
+    m_PressedColor: {r: 0.2, g: 0.28627452, b: 0.4117647, a: 1}
+    m_SelectedColor: {r: 0.22745098, g: 0.4745098, b: 0.73333335, a: 1}
+    m_DisabledColor: {r: 0, g: 0, b: 0, a: 0.45}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
