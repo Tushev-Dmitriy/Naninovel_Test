@@ -4,12 +4,15 @@
 @print "Сейф: Он уже открыт."
 @hidePrinter 
 @elseif hasKey==false
+@sfx SFX/safe_locked volume:0.16
 @set checkedSafe=true
 @print "Сейф: Закрыт. Нужен ключ."
 @hidePrinter 
 @else
+@sfx SFX/safe_open volume:0.18
 @set hasKey=false
 @set hasQuestItem=true
+@sfx SFX/item_pickup volume:0.13
 @print "Сейф: Открыто. Внутри лежал старинный амулет."
 @hidePrinter 
 @endif

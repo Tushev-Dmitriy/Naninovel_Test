@@ -1,3 +1,4 @@
+@bgm Music/title_music volume:0.16 fade:0.6
 @back Menu time:0
 @hideChars time:0 remove:true
 @stop

@@ -1,5 +1,6 @@
 @hideChars time:0 remove:true
 @char Npc pos:50,0 scale:0.5 time:0
+@sfx SFX/npc_click volume:0.17
 @if isGameFinished==true
 @print "NPC: Спасибо еще раз."
 @hidePrinter 

@@ -1,6 +1,9 @@
 @clearChoice *
 @hideChars time:0 remove:true
+@stopBgm fade:0.5
 @back Location1 time:0
+@sfx SFX/game_end volume:0.2
 @print "Игра завершена."
 @hidePrinter
+@wait 1.4
 @title

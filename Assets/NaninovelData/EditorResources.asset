@@ -185,6 +185,41 @@ MonoBehaviour:
     - name: Title
       pathPrefix: Scripts
       guid: 6f505ba3898c3964c9c9a16858e784c0
+  - Id: Audio
+    Resources:
+    - name: title_music
+      pathPrefix: Audio/Music
+      guid: 327828aafd31bb64fb9bb3fec93e44e1
+    - name: location_loop
+      pathPrefix: Audio/Music
+      guid: 07d86121f826d904c949bce01af2a98a
+    - name: npc_click
+      pathPrefix: Audio/SFX
+      guid: 0e5703231f146b34995b242def617fb0
+    - name: safe_locked
+      pathPrefix: Audio/SFX
+      guid: dcd2c9e54b026054e896531cb5695e1a
+    - name: safe_open
+      pathPrefix: Audio/SFX
+      guid: f5726c2584ac66049b6a34a1669df2ad
+    - name: key_pickup
+      pathPrefix: Audio/SFX
+      guid: 3d988c2eb351a314eaba2dcd1b486e6b
+    - name: item_pickup
+      pathPrefix: Audio/SFX
+      guid: 36ca97fa074d13e48b88796d751a0660
+    - name: move_button
+      pathPrefix: Audio/SFX
+      guid: 5e469b101000a854c80827212301f6d4
+    - name: tic_tac_toe_win
+      pathPrefix: Audio/SFX
+      guid: 928b6e84e5112914999bdbee48ae3251
+    - name: tic_tac_toe_lose
+      pathPrefix: Audio/SFX
+      guid: fc433ee5a75210044b68d2d85e2cebf3
+    - name: game_end
+      pathPrefix: Audio/SFX
+      guid: 1a4af053a7d63ce4780a9073d66648b4
   - Id: Backgrounds/8d4dbf76-a2ec-4a4d-b3e6-5ea5ce34db79
     Resources:
     - name: Location1

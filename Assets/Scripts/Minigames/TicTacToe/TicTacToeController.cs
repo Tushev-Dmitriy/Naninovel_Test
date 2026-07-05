@@ -44,7 +44,10 @@ public class TicTacToeController : MonoBehaviour
         }
 
         if (retryButton != null)
+        {
+            retryButton.onClick.AddListener(PlayRetrySound);
             retryButton.onClick.AddListener(ResetBoard);
+        }
     }
 
     private void OnEnable ()
@@ -89,10 +92,7 @@ public class TicTacToeController : MonoBehaviour
 
         result = EvaluateResult();
         if (result != TicTacToeResult.None)
-        {
-            SetBoardInteractable(false);
-            Finished?.Invoke(result);
-        }
+            CompleteRound();
         else
             MakeAiMove();
 
@@ -165,10 +165,7 @@ public class TicTacToeController : MonoBehaviour
         result = EvaluateResult();
 
         if (result != TicTacToeResult.None)
-        {
-            SetBoardInteractable(false);
-            Finished?.Invoke(result);
-        }
+            CompleteRound();
     }
 
     private void ApplyMove (int cellIndex, TicTacToeMark mark)
@@ -176,6 +173,26 @@ public class TicTacToeController : MonoBehaviour
         board[cellIndex] = mark;
         cellLabels[cellIndex].text = mark.ToString();
         cellButtons[cellIndex].interactable = false;
+    }
+
+    private void CompleteRound ()
+    {
+        SetBoardInteractable(false);
+        PlayResultSound();
+        Finished?.Invoke(result);
+    }
+
+    private void PlayResultSound ()
+    {
+        if (result == TicTacToeResult.XWins)
+            NaninovelAudioCue.PlaySfx("SFX/tic_tac_toe_win", 0.2f);
+        else if (result == TicTacToeResult.OWins || result == TicTacToeResult.Draw)
+            NaninovelAudioCue.PlaySfx("SFX/tic_tac_toe_lose", 0.18f);
+    }
+
+    private void PlayRetrySound ()
+    {
+        NaninovelAudioCue.PlaySfx("SFX/move_button", 0.12f);
     }
 
     private void EnsureEventSystem ()
