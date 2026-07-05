@@ -1,3 +1,5 @@
+@hideChars time:0 remove:true
+@char Safe pos:50,5 scale:1.25 time:0
 @if "hasQuestItem==true"
 @print "Safe: It is already open."
 @hidePrinter
@@ -11,4 +13,5 @@
 @print "Safe: Opened. I found the quest item."
 @hidePrinter
 @endif
+@hideChars time:0 remove:true
 @goto Location2

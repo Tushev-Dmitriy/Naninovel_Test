@@ -1,19 +1,22 @@
-@if "isGameFinished==true"
+@hideChars time:0 remove:true
+@char Npc pos:50,0 scale:1.5 time:0
+@if isGameFinished==true
 @print "NPC: Thanks again."
-@hidePrinter
-@elseif "hasQuestItem==true"
+@hidePrinter 
+@elseif hasQuestItem==true
 @set isGameFinished=true
 @print "NPC: Thanks for the item."
-@hidePrinter
-@elseif "talkedToNpc==false"
+@hidePrinter 
+@elseif talkedToNpc==false
 @set talkedToNpc=true
 @print "NPC: Please bring me the item from the safe."
-@hidePrinter
-@elseif "checkedSafe==true&&hasKey==false"
+@hidePrinter 
+@elseif checkedSafe==true&&hasKey==false
 @print "NPC: The key may be on Location 3."
-@hidePrinter
+@hidePrinter 
 @else
 @print "NPC: How is it going?"
-@hidePrinter
+@hidePrinter 
 @endif
+@hideChars time:0 remove:true
 @goto Location1

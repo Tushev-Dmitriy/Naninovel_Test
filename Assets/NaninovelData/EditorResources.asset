@@ -167,6 +167,18 @@ MonoBehaviour:
     - name: KeyInteract
       pathPrefix: Scripts
       guid: d9841594f90b41a08007c1f97846ec2d
+    - name: StayOnLocation1
+      pathPrefix: Scripts
+      guid: ca087dd66eb0827428367a96e4cd661f
+    - name: StayOnLocation2
+      pathPrefix: Scripts
+      guid: 62cbe8e82c10d0d49ae8351ec1c38437
+    - name: StayOnLocation3
+      pathPrefix: Scripts
+      guid: 412b56a980776b44b8d75cc0b799072e
+    - name: Title
+      pathPrefix: Scripts
+      guid: 6f505ba3898c3964c9c9a16858e784c0
   - Id: Backgrounds/8d4dbf76-a2ec-4a4d-b3e6-5ea5ce34db79
     Resources:
     - name: Location1
@@ -178,6 +190,9 @@ MonoBehaviour:
     - name: Location3
       pathPrefix: Backgrounds/MainBackground
       guid: d176cba92f3745379d4568f9f45b88d2
+    - name: Menu
+      pathPrefix: Backgrounds/MainBackground
+      guid: 769223736cba1914bbfda9c43dfdf529
   - Id: Characters/e85e905c-6eeb-4ed2-9fcb-f8d71ecf37dd
     Resources:
     - name: Default

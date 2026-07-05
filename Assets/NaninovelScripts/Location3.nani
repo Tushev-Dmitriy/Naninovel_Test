@@ -1,12 +1,11 @@
 @clearChoice *
 @set currentLocation=3
-@back Location3 pos:50,48 time:0
+@back Location3 time:0
 @hideChars time:0 remove:true
-@if "hasKey==false&&hasQuestItem==false"
-@char Key pos:50,27 scale:2.2 time:0
-@choice "Pick up key" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:0,-235 goto:KeyInteract
+@if hasKey==false&&hasQuestItem==false
+@choice "Inspect area" button:ChoiceButtons/CompactChoiceButton pos:0,-235 handler:ButtonArea goto:KeyInteract
 @endif
-@choice "Location 1" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,220 goto:Location1
-@choice "Location 2" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,165 goto:Location2
-@choice "Location 3" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,110 goto:Location3
+@choice "Location 1" button:ChoiceButtons/CompactChoiceButton pos:-820,220 handler:ButtonArea goto:Location1
+@choice "Location 2" button:ChoiceButtons/CompactChoiceButton pos:-820,165 handler:ButtonArea goto:Location2
+@choice "Location 3" button:ChoiceButtons/CompactChoiceButton pos:-820,110 handler:ButtonArea goto:StayOnLocation3
 @stop

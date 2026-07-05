@@ -1,10 +1,9 @@
 @clearChoice *
 @set currentLocation=1
-@back Location1 pos:50,48 time:0
+@back Location1 time:0
 @hideChars time:0 remove:true
-@char Npc pos:50,28 scale:2.4 time:0
-@choice "Talk to NPC" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:0,-245 goto:NpcInteract
-@choice "Location 1" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,220 goto:Location1
-@choice "Location 2" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,165 goto:Location2
-@choice "Location 3" handler:ButtonArea button:ChoiceButtons/CompactChoiceButton pos:-820,110 goto:Location3
+@choice "Talk to NPC" button:ChoiceButtons/CompactChoiceButton pos:0,-245 handler:ButtonArea goto:NpcInteract
+@choice "Location 1" button:ChoiceButtons/CompactChoiceButton pos:-820,220 handler:ButtonArea goto:StayOnLocation1
+@choice "Location 2" button:ChoiceButtons/CompactChoiceButton pos:-820,165 handler:ButtonArea goto:Location2
+@choice "Location 3" button:ChoiceButtons/CompactChoiceButton pos:-820,110 handler:ButtonArea goto:Location3
 @stop
